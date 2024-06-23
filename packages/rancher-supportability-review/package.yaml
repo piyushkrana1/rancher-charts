@@ -1,0 +1,8 @@
+url: local
+version: 1.0.0-dev1
+additionalCharts:
+  - workingDir: charts-crd
+    crdOptions:
+      templateDirectory: crd-template
+      crdDirectory: templates
+      addCRDValidationToMainChart: true
