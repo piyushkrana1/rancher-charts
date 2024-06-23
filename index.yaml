@@ -1,0 +1,46 @@
+apiVersion: v1
+entries:
+  rancher-supportability-review:
+  - annotations:
+      catalog.cattle.io/auto-install: rancher-supportability-review-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Supportability Review
+      catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.31.0-0'
+      catalog.cattle.io/namespace: sr-operator-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: sr.cattle.io.reviewbundles/v1
+      catalog.cattle.io/rancher-version: '>= 2.6.0-0 < 2.10.0-0'
+      catalog.cattle.io/release-name: rancher-supportability-review
+      catalog.cattle.io/type: cluster-tool
+      catalog.cattle.io/ui-component: rancher-supportability-review
+    apiVersion: v1
+    appVersion: v1.0.0-dev1
+    created: "2024-06-23T19:20:15.673686+05:30"
+    description: The rancher-supporability-review operator enables the functionality
+      of Supportability Reviews for Rancher.
+    digest: 201a86e8651fdf2f4aee8c9e421f8e726df2d27016f4299a742df13e4c7754da
+    icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
+    keywords:
+    - support
+    - review
+    name: rancher-supportability-review
+    urls:
+    - assets/rancher-supportability-review/rancher-supportability-review-1.0.0-dev1.tgz
+    version: 1.0.0-dev1
+  rancher-supportability-review-crd:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: sr-operator-system
+      catalog.cattle.io/release-name: rancher-supportability-review-crd
+    apiVersion: v1
+    created: "2024-06-23T19:20:15.673848+05:30"
+    description: Installs the CRDs for rancher-supportability-review.
+    digest: 3e20224d7f650a4df823c091d68075431d3ac8321131b0b221822a9bd994a66d
+    name: rancher-supportability-review-crd
+    type: application
+    urls:
+    - assets/rancher-supportability-review-crd/rancher-supportability-review-crd-1.0.0-dev1.tgz
+    version: 1.0.0-dev1
+generated: "2024-06-23T19:20:15.672259+05:30"
