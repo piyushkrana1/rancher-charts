@@ -20926,7 +20926,7 @@ entries:
       catalog.cattle.io/auto-install: rancher-supportability-review-crd=match
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: Supportability Review
-      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.31.0-0'
+      catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.31.0-0'
       catalog.cattle.io/namespace: sr-operator-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -20937,10 +20937,10 @@ entries:
       catalog.cattle.io/ui-component: rancher-supportability-review
     apiVersion: v1
     appVersion: v1.0.0-dev1
-    created: "2024-06-23T15:06:16.570679+05:30"
+    created: "2024-06-23T17:42:43.434779+05:30"
     description: The rancher-supporability-review operator enables the functionality
       of Supportability Reviews for Rancher.
-    digest: 3cd8763d5903319804658d5291120a32e5064bd611a58926be49a6a3f35319b0
+    digest: 17dfc0209797d87e51fea18a4422330d0e936bbb0df0591ea4af1b034362ca44
     icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
     keywords:
     - support
