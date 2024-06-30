@@ -1,55 +1,60 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: supportability-review-operator
-  namespace: {{ template "sr.namespace" . }}
+  name: {{ include "rancher-supportability-review.fullname" . }}
   labels:
-    sr.cattle.io/operator: supportability-review-operator
+    {{- include "rancher-supportability-review.labels" . | nindent 4 }}
 spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
   selector:
     matchLabels:
-      sr.cattle.io/operator: supportability-review-operator
+      {{- include "rancher-supportability-review.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        sr.cattle.io/operator: supportability-review-operator
-    spec:
-      serviceAccountName: supportability-review-operator-serviceaccount
-      containers:
-      - name: supportability-review-operator
-        image: '{{ template "system_default_registry" . }}{{ .Values.image.sroperator.repository }}:{{ .Values.image.sroperator.tag }}'
-        imagePullPolicy: IfNotPresent
-        ports:
-        - name: srmetrics
-          containerPort: {{ .Values.alerts.metricsPort }}
-        env:
-        - name: SECURITY_SCAN_IMAGE
-          value: {{ template "system_default_registry" . }}{{ .Values.image.securityScan.repository }}
-        - name: SECURITY_SCAN_IMAGE_TAG
-          value: {{ .Values.image.securityScan.tag }}
-        - name: SONOBUOY_IMAGE
-          value: {{ template "system_default_registry" . }}{{ .Values.image.sonobuoy.repository }}
-        - name: SONOBUOY_IMAGE_TAG
-          value: {{ .Values.image.sonobuoy.tag }}
-        - name: CLUSTER_NAME
-          value: '{{ .Values.global.cattle.clusterName }}'
-        - name: SR_OPERATOR_DEBUG
-          value: '{{ .Values.image.sroperator.debug }}'
-        {{- if .Values.securityScanJob.overrideTolerations }}
-        - name: SECURITY_SCAN_JOB_TOLERATIONS
-          value: '{{ .Values.securityScanJob.tolerations | toJson  }}'
+        {{- include "rancher-supportability-review.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
         {{- end }}
-        resources:
-          {{- toYaml .Values.resources | nindent 12 }}
-      nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
-{{- if .Values.nodeSelector }}
-{{ toYaml .Values.nodeSelector | indent 8 }}
-{{- end }}
-      tolerations: {{ include "linux-node-tolerations" . | nindent 8 }}
-{{- if .Values.tolerations }}
-{{ toYaml .Values.tolerations | indent 8 }}
-{{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "rancher-supportability-review.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- with .Values.affinity }}
       affinity:
-      {{- toYaml . | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
       {{- end }}

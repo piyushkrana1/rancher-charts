@@ -1,6 +1,6 @@
 # Rancher Supportability Review Chart
 
-The supportability-review-operator enables running Supporability Reviews.
+The supportability-review-operator enables running Supportability Reviews.
 
 # Installation
 
