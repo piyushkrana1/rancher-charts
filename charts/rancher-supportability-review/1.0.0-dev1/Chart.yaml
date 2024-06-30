@@ -13,11 +13,10 @@ annotations:
   catalog.cattle.io/ui-component: rancher-supportability-review
 apiVersion: v1
 appVersion: v1.0.0-dev1
-description: The rancher-supporability-review operator enables the functionality of
-  Supportability Reviews for Rancher.
+description: The rancher-supportability-review operator enables the functionality
+  of Supportability Reviews for Rancher.
 icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
 keywords:
 - support
-- review
 name: rancher-supportability-review
 version: 1.0.0-dev1

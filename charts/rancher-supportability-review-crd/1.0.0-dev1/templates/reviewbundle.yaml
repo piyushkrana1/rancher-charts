@@ -46,6 +46,30 @@ spec:
             type: object
           status:
             properties:
+              conditions:
+                items:
+                  properties:
+                    lastTransitionTime:
+                      nullable: true
+                      type: string
+                    lastUpdateTime:
+                      nullable: true
+                      type: string
+                    message:
+                      nullable: true
+                      type: string
+                    reason:
+                      nullable: true
+                      type: string
+                    status:
+                      nullable: true
+                      type: string
+                    type:
+                      nullable: true
+                      type: string
+                  type: object
+                nullable: true
+                type: array
               timestamp:
                 nullable: true
                 type: string
