@@ -20508,6 +20508,48 @@ entries:
     urls:
     - assets/rancher-sachet/rancher-sachet-1.0.100.tgz
     version: 1.0.100
+  rancher-supportability-review:
+  - annotations:
+      catalog.cattle.io/auto-install: rancher-supportability-review-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Supportability Review
+      catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.31.0-0'
+      catalog.cattle.io/namespace: sr-operator-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: sr.cattle.io.reviewbundles/v1
+      catalog.cattle.io/rancher-version: '>= 2.6.0-0 < 2.10.0-0'
+      catalog.cattle.io/release-name: rancher-supportability-review
+      catalog.cattle.io/type: cluster-tool
+      catalog.cattle.io/ui-component: rancher-supportability-review
+    apiVersion: v1
+    appVersion: v1.0.0-dev1
+    created: "2024-06-30T10:42:29.001952+05:30"
+    description: The rancher-supportability-review operator enables the functionality
+      of Supportability Reviews for Rancher.
+    digest: dda077368cb57894419c8d30f02a2c298b3a4b6ab39e728863876254416bd8a5
+    icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
+    keywords:
+    - support
+    name: rancher-supportability-review
+    urls:
+    - assets/rancher-supportability-review/rancher-supportability-review-1.0.0-dev1.tgz
+    version: 1.0.0-dev1
+  rancher-supportability-review-crd:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: sr-operator-system
+      catalog.cattle.io/release-name: rancher-supportability-review-crd
+    apiVersion: v1
+    created: "2024-06-30T10:42:29.002074+05:30"
+    description: Installs the CRDs for rancher-supportability-review.
+    digest: 74fe208d58342694389d6614e6f6fae833d32f3de45b8e4d6ca01d5225bc75f3
+    name: rancher-supportability-review-crd
+    type: application
+    urls:
+    - assets/rancher-supportability-review-crd/rancher-supportability-review-crd-1.0.0-dev1.tgz
+    version: 1.0.0-dev1
   rancher-tracing:
   - annotations:
       catalog.cattle.io/hidden: "true"
