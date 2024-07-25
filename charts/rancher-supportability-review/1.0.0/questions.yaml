@@ -1,0 +1,16 @@
+questions:
+  - variable: rancherUrl
+    label: Rancher URL
+    default: ""
+    description: "The URL of the Rancher server."
+    type: string
+    required: true
+    group: Rancher Configuration
+
+  - variable: rancherToken
+    label: Rancher Token
+    default: ""
+    description: "The access token for the Rancher server."
+    type: string
+    required: true
+    group: Rancher Configuration
