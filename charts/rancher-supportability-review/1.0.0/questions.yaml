@@ -16,9 +16,9 @@ questions:
     group: Rancher Configuration
 
   - variable: rancher.srImageRepository
-    label: Operator Repository
+    label: SR image Repository
     default: "ghcr.io/rancher/supportability-review:latest"
-    description: "The repository of SR operator."
+    description: "The repository of SR image."
     type: string
     required: false
     group: Rancher Configuration
