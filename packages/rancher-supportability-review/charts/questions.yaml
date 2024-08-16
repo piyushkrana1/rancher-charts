@@ -20,5 +20,5 @@ questions:
     default: "ghcr.io/rancher/supportability-review-operator"
     description: "The repository of SR operator."
     type: string
-    required: false
+    required: true
     group: Rancher Configuration
