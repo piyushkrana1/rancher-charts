@@ -1,5 +1,5 @@
 questions:
-  - variable: rancherUrl
+  - variable: rancher.url
     label: Rancher URL
     default: ""
     description: "The URL of the Rancher server."
@@ -7,7 +7,7 @@ questions:
     required: true
     group: Rancher Configuration
 
-  - variable: rancherToken
+  - variable: rancher.token
     label: Rancher Token
     default: ""
     description: "The access token for the Rancher server."
@@ -15,9 +15,9 @@ questions:
     required: true
     group: Rancher Configuration
 
-  - variable: image.repository
+  - variable: rancher.srImageRepository
     label: Operator Repository
-    default: "ghcr.io/rancher/supportability-review-operator"
+    default: "ghcr.io/rancher/supportability-review:latest"
     description: "The repository of SR operator."
     type: string
     required: false
