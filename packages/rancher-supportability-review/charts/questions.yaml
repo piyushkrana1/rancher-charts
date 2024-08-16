@@ -14,3 +14,11 @@ questions:
     type: string
     required: true
     group: Rancher Configuration
+
+  - variable: image.repository
+    label: Operator Repository
+    default: "ghcr.io/rancher/supportability-review-operator"
+    description: "The repository of SR operator."
+    type: string
+    required: false
+    group: Rancher Configuration
