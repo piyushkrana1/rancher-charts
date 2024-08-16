@@ -8,7 +8,7 @@ rancher:
   secretName: "sr-api-details"
   url: ""
   token: ""
-  srImageRepository: ""
+  srImageRepository: "ghcr.io/rancher/supportability-review:latest"
 
 image:
   repository: ghcr.io/rancher/supportability-review-operator
