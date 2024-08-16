@@ -1,0 +1,339 @@
+From d896b4330baf2eee6243291478a895a8a97d537a Mon Sep 17 00:00:00 2001
+From: Murali Paluru <leodotcloud@gmail.com>
+Date: Sun, 30 Jun 2024 15:18:39 +0530
+Subject: [PATCH 04/10] make charts
+
+---
+ ...ancher-supportability-review-crd-1.0.0.tgz | Bin 872 -> 871 bytes
+ .../rancher-supportability-review-1.0.0.tgz   | Bin 2898 -> 3493 bytes
+ .../1.0.0/templates/clusterrole.yaml          |   8 +++
+ .../1.0.0/templates/clusterrolebinding.yaml   |  12 ++++
+ .../1.0.0/templates/deployment.yaml           |  60 ++++++++++++++++++
+ .../templates/network_policy_allow_all.yaml   |  13 ++++
+ index.yaml                                    |   8 +--
+ 7 files changed, 97 insertions(+), 4 deletions(-)
+ create mode 100644 charts/rancher-supportability-review/1.0.0/templates/clusterrole.yaml
+ create mode 100644 charts/rancher-supportability-review/1.0.0/templates/clusterrolebinding.yaml
+ create mode 100644 charts/rancher-supportability-review/1.0.0/templates/deployment.yaml
+ create mode 100644 charts/rancher-supportability-review/1.0.0/templates/network_policy_allow_all.yaml
+
+diff --git a/assets/rancher-supportability-review-crd/rancher-supportability-review-crd-1.0.0.tgz b/assets/rancher-supportability-review-crd/rancher-supportability-review-crd-1.0.0.tgz
+index a450cb1c39fd8db5003be94c8782627ea3515ccd..64364f7163bfd58502e71252b836179acc5405e1 100644
+GIT binary patch
+delta 824
+zcmV-81IPU62ImHlJbzJ>+BOj8*}p=QKI7OxxsKniTpse!&J9iTzLxhui7aWfD;lQL
+z|K71|I1WsK>s``x_+C6-t@N#={Z^6(BbVrh6r8i3p;TJ&dgyVb@Q<PN)!W$;Jf~}@
+z_28MvvMifUCh?nP+5R{CadI=rC(}tb%BSOeI>_>yn`u4}*?)5hFF_y%Kgj+y*Z$<b
+z6M!+6ft58>Btl4F&~}kZVAhx_`&Oc7^`NjSM3*bQZc9~FXbSO$eZV)pE(U5O2NDZG
+zerO$fVC#ppCdRtAhewS-IBa@u>5r#s0#1EIPs*A?tn#Enl3qEE|L+YkXib8bC}#6J
+z5)an@^O$LJE`Kqv9Tozd(@Mt0OjesX@-$1c<Xdm^QJmI4W9>9B(%aTp22*Lgq#&Ho
+z|70{8Kh^(eJjo_k{eKPYN(P+5FN~)7qxADn)M#*(C!dw63NZ`Bww@!|;3eMSgEA_n
+zdW{SfFf{d}6U<JcP)hz$(g`_~jpM@G;F?0P)7Ey6b$>{RmUJFR`Z<mi%}xgodXFNu
+zkTQ#)!9Q(Fgdk}fb<T7kj@7HvW+WO4sH!**(Dz;$MnAJU)TRq#C_a%j_rS|Sq{P61
+zQdTt*L+zr+X3`(_tZhvo_R1`hN4HhpMk|+CL(%zKhvxSF{m1cdPs~C%-_%J~n^kGC
+zS;R;5`+qg4undcR<0iV&T8&^1x~wkifM28z6?Q9p5P}ejvF<SoVS?6BYAi%^ZuB@D
+ztl|Z|yQ=IxtoPcK`OX4%;6ZEDGpjYqc%ogjLu8FDgI)i+J%gVYTkpI!gEtDWfsaMj
+zh-(oAxZh&SPbhge!K2X5O>t>WE8$Bv^7wEqG=C6(@L(v8+)S<C?~IfXr_y4>_q(fr
+z@%6cCB!a~&lXwK`OVgL+=*yFr=7<ij$Z$jgXAvAP7~3=I<%HfF=z)>YubRigc5Gtn
+zn`GOugwl7{i0$5WJ1PGB>%V(f{y*aM{eS-M_U@N=X<a>=<J9{<pN{t5|KscZ|Lfp~
+zGcjJbw_@J<2)P8$f|tNT9lWOlVI|7-sW<hvp79k|Tyez}4gL-Q0RR6Vw~fI77ytnI
+C45|$P
+
+delta 825
+zcmV-91IGO42IvNmJb%G*+cpr@nO}iP&!S0LwmZDJat=AP<5APxm*84L0s<K9LXD==
+zfA0{aWLcsr$+eR@qj%wOvA|mZ`xbx)Bj@Oc6r8i3p;TJ&a_DiP@Xw+2)x~5Ep3^1N
+zdhkqSS(aUo$MKtG+4eWP8s7}^@%1<x<)iC78)W&-&DCfivVZ3io`OIOevtiVuI<Ua
+z5r8q4ft58>Btl4F&~}zeVAhx_dm+)YdQeyuqRW+Dx4Eh+G=+G_KH$4v7Xvkt1Brzo
+zKeP@#u=PV)5@X%l!=pwZ95y}I^!rma0jEBpCuL0`7I{)3Nv|Bo{||;3v?jrG6qD&4
+zi3jWdeatjDmVcO+4hsR!X(i)gCW}=Zd77nJ^1ZitFAnRUv3435>7q53!BiSgDF_Gj
+zKOT)PpXz^fd3ken*8jJ_rewe={K{yWKT5y+OpOK?dGbY>st}VvZ0jkK4PN3MJ}9GN
+zs@KR+0Yg(iI>Brt3Z>*9C7qB%**MO;4X!B!8*Od(Sbv9vXi2AWq+jAl(d=~aptmSu
+z3n?=T8vN6?L<o|$QRhSl;#j>pZAPM@fU1h~0DbS3Ve}KLLv6Y+hT=0>a}PW(L`n=C
+zC}mY6G1M-4tS0?&%i7iiVz10Bd30OkZM1TZH58q%b!cwyKYY6U{fSu!=bJjoYPBjY
+zR*U$Eet*9P6_#PPZCpiHTB{MvPM5`L9q_Bvp~7y3cR~<CG1fh1AxzL3N{xkR&W#?2
+zomD)ccUP6YhvinAGH)zk2OhLWJ+WG&j3?SjJ4DvlGT7yB>ofRyvGvYtHF%={8+c!2
+zjksn}fZHv${EU(}6Fds-*c6x6v=TmLBli#2LVpACM-PVL$j#LH{f<ZpaVRZTe1EtK
+z7+;^OMk1KKGKoi^zBGMFj=ns3X^!adiVS-sa1_D*g0ViMUQXz}f$kUy{i1m+tj8v{
+zzDc$XODKJJjactpx0B+pzyH5?<sT7;@Bh>Hw|Bq3PwVR09EaZj`Sob~{XaV2|Gy1>
+zIx^yQdn=}`kC1clEO-tq)XsZ45LTjG9(q%M?-`$Q#u;av(cqr|009604Qn*g02lxO
+De!Y=K
+
+diff --git a/assets/rancher-supportability-review/rancher-supportability-review-1.0.0.tgz b/assets/rancher-supportability-review/rancher-supportability-review-1.0.0.tgz
+index bdfc44f4337c90c37bf1e5ae82f921cebd807773..6e89b8af3bffc2cf358097b24b8f8d922ce97eeb 100644
+GIT binary patch
+delta 3468
+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
+
+delta 2868
+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
+S`%eG>0RR6&!o%VKH~;{D^|*up
+
+diff --git a/charts/rancher-supportability-review/1.0.0/templates/clusterrole.yaml b/charts/rancher-supportability-review/1.0.0/templates/clusterrole.yaml
+new file mode 100644
+index 000000000..9fda2aea2
+--- /dev/null
++++ b/charts/rancher-supportability-review/1.0.0/templates/clusterrole.yaml
+@@ -0,0 +1,8 @@
++apiVersion: rbac.authorization.k8s.io/v1
++kind: ClusterRole
++metadata:
++  name: {{ include "rancher-supportability-review.fullname" . }}-cr
++rules:
++- apiGroups: ["*"]
++  resources: ["*"]
++  verbs: ["*"]
+diff --git a/charts/rancher-supportability-review/1.0.0/templates/clusterrolebinding.yaml b/charts/rancher-supportability-review/1.0.0/templates/clusterrolebinding.yaml
+new file mode 100644
+index 000000000..e329c7ece
+--- /dev/null
++++ b/charts/rancher-supportability-review/1.0.0/templates/clusterrolebinding.yaml
+@@ -0,0 +1,12 @@
++apiVersion: rbac.authorization.k8s.io/v1
++kind: ClusterRoleBinding
++metadata:
++  name: {{ include "rancher-supportability-review.fullname" . }}-crb
++roleRef:
++  apiGroup: rbac.authorization.k8s.io
++  kind: ClusterRole
++  name: {{ include "rancher-supportability-review.fullname" . }}-cr
++subjects:
++- kind: ServiceAccount
++  name: {{ include "rancher-supportability-review.serviceAccountName" . }}
++  namespace: {{ .Release.Namespace }}
+diff --git a/charts/rancher-supportability-review/1.0.0/templates/deployment.yaml b/charts/rancher-supportability-review/1.0.0/templates/deployment.yaml
+new file mode 100644
+index 000000000..f54f674bb
+--- /dev/null
++++ b/charts/rancher-supportability-review/1.0.0/templates/deployment.yaml
+@@ -0,0 +1,60 @@
++apiVersion: apps/v1
++kind: Deployment
++metadata:
++  name: {{ include "rancher-supportability-review.fullname" . }}
++  labels:
++    {{- include "rancher-supportability-review.labels" . | nindent 4 }}
++spec:
++  {{- if not .Values.autoscaling.enabled }}
++  replicas: {{ .Values.replicaCount }}
++  {{- end }}
++  selector:
++    matchLabels:
++      {{- include "rancher-supportability-review.selectorLabels" . | nindent 6 }}
++  template:
++    metadata:
++      {{- with .Values.podAnnotations }}
++      annotations:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
++      labels:
++        {{- include "rancher-supportability-review.labels" . | nindent 8 }}
++        {{- with .Values.podLabels }}
++        {{- toYaml . | nindent 8 }}
++        {{- end }}
++    spec:
++      {{- with .Values.imagePullSecrets }}
++      imagePullSecrets:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
++      serviceAccountName: {{ include "rancher-supportability-review.serviceAccountName" . }}
++      securityContext:
++        {{- toYaml .Values.podSecurityContext | nindent 8 }}
++      containers:
++        - name: {{ .Chart.Name }}
++          securityContext:
++            {{- toYaml .Values.securityContext | nindent 12 }}
++          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
++          imagePullPolicy: {{ .Values.image.pullPolicy }}
++          resources:
++            {{- toYaml .Values.resources | nindent 12 }}
++          {{- with .Values.volumeMounts }}
++          volumeMounts:
++            {{- toYaml . | nindent 12 }}
++          {{- end }}
++      {{- with .Values.volumes }}
++      volumes:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
++      {{- with .Values.nodeSelector }}
++      nodeSelector:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
++      {{- with .Values.affinity }}
++      affinity:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
++      {{- with .Values.tolerations }}
++      tolerations:
++        {{- toYaml . | nindent 8 }}
++      {{- end }}
+diff --git a/charts/rancher-supportability-review/1.0.0/templates/network_policy_allow_all.yaml b/charts/rancher-supportability-review/1.0.0/templates/network_policy_allow_all.yaml
+new file mode 100644
+index 000000000..926ceea6d
+--- /dev/null
++++ b/charts/rancher-supportability-review/1.0.0/templates/network_policy_allow_all.yaml
+@@ -0,0 +1,13 @@
++apiVersion: networking.k8s.io/v1
++kind: NetworkPolicy
++metadata:
++  name: default-allow-all
++spec:
++  podSelector: {}
++  ingress:
++  - {}
++  egress:
++  - {}
++  policyTypes:
++  - Ingress
++  - Egress
+diff --git a/index.yaml b/index.yaml
+index 0aa0d7118..34778003a 100755
+--- a/index.yaml
++++ b/index.yaml
+@@ -993,10 +993,10 @@ entries:
+       catalog.cattle.io/ui-component: rancher-supportability-review
+     apiVersion: v1
+     appVersion: v1.0.0
+-    created: "2024-06-30T13:51:28.190087+05:30"
++    created: "2024-06-30T14:22:30.014484+05:30"
+     description: The rancher-supportability-review operator enables the functionality
+       of Supportability Reviews for Rancher.
+-    digest: 9c85500dce09292c583535b74421d0810fb786e1e096d9f019585219abf9ea6b
++    digest: 1cb9197833328ae18ed307d3c0053b90b5030f82c362c0fa1df52f55146e21b3
+     icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
+     keywords:
+     - support
+@@ -1011,9 +1011,9 @@ entries:
+       catalog.cattle.io/namespace: sr-operator-system
+       catalog.cattle.io/release-name: rancher-supportability-review-crd
+     apiVersion: v1
+-    created: "2024-06-30T13:51:28.190202+05:30"
++    created: "2024-06-30T14:22:30.014596+05:30"
+     description: Installs the CRDs for rancher-supportability-review.
+-    digest: e8d9e38a52b3ebadd114ee6b2438b4d022ce7b329d3382a0a843efe8a69b27cd
++    digest: 3af9632037ac3d904f8cadd3927a3572db22d60e8df7068e6352d946795b3b7a
+     name: rancher-supportability-review-crd
+     type: application
+     urls:
+-- 
+2.25.1
+
