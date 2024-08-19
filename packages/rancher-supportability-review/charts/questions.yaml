@@ -25,7 +25,7 @@ questions:
   subquestions:
   - variable: s3.endpoint
     label: S3 endpoint URL
-    default: ""
+    default: "https://<hostname>:<port no>"
     description: "The URL of S3 endpoint."
     type: string
     required: false
