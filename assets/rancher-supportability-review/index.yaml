@@ -1,0 +1,30 @@
+apiVersion: v1
+entries:
+  rancher-supportability-review:
+  - annotations:
+      catalog.cattle.io/auto-install: rancher-supportability-review-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Supportability Review
+      catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.31.0-0'
+      catalog.cattle.io/namespace: sr-operator-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: sr.cattle.io.reviewbundles/v1
+      catalog.cattle.io/rancher-version: '>= 2.6.0-0 < 2.10.0-0'
+      catalog.cattle.io/release-name: rancher-supportability-review
+      catalog.cattle.io/type: cluster-tool
+      catalog.cattle.io/ui-component: rancher-supportability-review
+    apiVersion: v1
+    appVersion: v1.0.0
+    created: "2024-08-19T14:45:52.170212823+09:00"
+    description: The rancher-supportability-review operator enables the functionality
+      of Supportability Reviews for Rancher.
+    digest: 2c34e8a781187f77bfa90d6da267b6cc0dced99ef7204eea656abac03ab9052e
+    icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
+    keywords:
+    - support
+    name: rancher-supportability-review
+    urls:
+    - rancher-supportability-review-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-08-19T14:45:52.169332527+09:00"

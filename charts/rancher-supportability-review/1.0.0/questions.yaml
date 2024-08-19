@@ -15,6 +15,21 @@ questions:
   required: true
   group: Rancher Configuration
 
+- variable: s3.useAwsS3
+  default: "true"
+  description: "Use AWS S3"
+  type: boolean
+  group: S3 Configuration
+  label: Use AWS S3
+  show_subquestion_if: false
+  subquestions:
+  - variable: s3.endpoint
+    label: S3 endpoint URL
+    default: ""
+    description: "The URL of S3 endpoint."
+    type: string
+    required: false
+
 - variable: rancher.srImageRepository
   label: SR image Repository
   default: "ghcr.io/rancher/supportability-review:latest"
@@ -22,11 +37,3 @@ questions:
   type: string
   required: false
   group: Debug
-
-- variable: s3.endpoint
-  label: S3 endpoint URL
-  default: ""
-  description: "The URL of S3 endpoint."
-  type: string
-  required: false
-  group: S3 Configuration
