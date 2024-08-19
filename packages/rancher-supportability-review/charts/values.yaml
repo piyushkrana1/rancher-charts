@@ -13,6 +13,12 @@ rancher:
 s3:
   useAwsS3: true
   endpoint: ""
+  region: ""
+  bucket: ""
+  folder: ""
+  insecureTLSSkipVerify: false
+  accessKeyId: ""
+  secretAccessKey: ""
 
 image:
   repository: ghcr.io/rancher/supportability-review-operator
