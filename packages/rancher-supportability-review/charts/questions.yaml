@@ -1,32 +1,32 @@
 questions:
-  - variable: rancher.url
-    label: Rancher URL
-    default: ""
-    description: "The URL of the Rancher server."
-    type: string
-    required: true
-    group: Rancher Configuration
+- variable: rancher.url
+  label: Rancher URL
+  default: ""
+  description: "The URL of the Rancher server."
+  type: string
+  required: true
+  group: Rancher Configuration
 
-  - variable: rancher.token
-    label: Rancher Token
-    default: ""
-    description: "The access token for the Rancher server."
-    type: string
-    required: true
-    group: Rancher Configuration
+- variable: rancher.token
+  label: Rancher Token
+  default: ""
+  description: "The access token for the Rancher server."
+  type: string
+  required: true
+  group: Rancher Configuration
 
-  - variable: rancher.srImageRepository
-    label: SR image Repository
-    default: "ghcr.io/rancher/supportability-review:latest"
-    description: "The repository of SR image."
-    type: string
-    required: false
-    group: Rancher Configuration
+- variable: rancher.srImageRepository
+  label: SR image Repository
+  default: "ghcr.io/rancher/supportability-review:latest"
+  description: "The repository of SR image."
+  type: string
+  required: false
+  group: Debug
 
-  - variable: s3.endpoint
-    label: S3 endpoint URL
-    default: ""
-    description: "The URL of S3 endpoint."
-    type: string
-    required: false
-    group: S3 Configuration
+- variable: s3.endpoint
+  label: S3 endpoint URL
+  default: ""
+  description: "The URL of S3 endpoint."
+  type: string
+  required: false
+  group: S3 Configuration
