@@ -22,3 +22,11 @@ questions:
     type: string
     required: false
     group: Rancher Configuration
+
+  - variable: s3.endpoint
+    label: S3 endpoint URL
+    default: ""
+    description: "The URL of S3 endpoint."
+    type: string
+    required: false
+    group: S3 Configuration

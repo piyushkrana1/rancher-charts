@@ -10,6 +10,9 @@ rancher:
   token: ""
   srImageRepository: "ghcr.io/rancher/supportability-review:latest"
 
+s3:
+  endpoint: ""
+
 image:
   repository: ghcr.io/rancher/supportability-review-operator
   #pullPolicy: IfNotPresent
