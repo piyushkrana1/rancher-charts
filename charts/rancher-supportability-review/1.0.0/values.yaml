@@ -22,11 +22,12 @@ s3:
 
 image:
   #repository: ghcr.io/rancher/supportability-review-operator
-  repository: registry.hub.docker.com/masap20220915/supportability-review-operator:dev
+  repository: registry.hub.docker.com/masap20220915/supportability-review-operator
   #pullPolicy: IfNotPresent
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  #tag: "latest"
+  tag: "dev"
 
 imagePullSecrets: []
 nameOverride: ""

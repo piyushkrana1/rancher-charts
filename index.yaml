@@ -993,10 +993,10 @@ entries:
       catalog.cattle.io/ui-component: rancher-supportability-review
     apiVersion: v1
     appVersion: v1.0.0
-    created: "2024-08-21T10:13:53.848853+05:30"
+    created: "2024-08-21T14:43:40.834529+05:30"
     description: The rancher-supportability-review operator enables the functionality
       of Supportability Reviews for Rancher.
-    digest: 60bb9a0c2c3e74dc3a401d6df5f5430ef4c0cdcd781e561cfab19a8ed2cc4235
+    digest: 744ae276658f05a8a7b5dafdbd2a353254128f03f9f37bd93fe1e74f425e6e32
     icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
     keywords:
     - support
