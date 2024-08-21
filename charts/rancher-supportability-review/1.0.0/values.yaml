@@ -21,7 +21,8 @@ s3:
   secretAccessKey: ""
 
 image:
-  repository: ghcr.io/rancher/supportability-review-operator
+  #repository: ghcr.io/rancher/supportability-review-operator
+  repository: registry.hub.docker.com/masap20220915/supportability-review-operator:dev
   #pullPolicy: IfNotPresent
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
